@@ -17,6 +17,40 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
-
+class Calculator {
+  res = 0;
+  add(num){
+    this.res += num;
+  }
+  subtract(num){
+    this.res -= num;
+  }
+  multiply(num){
+    this.res*= num;
+  }
+  divide(num){
+    if(num === 0){
+      throw(Error());
+    }
+    this.res/= num;
+  }
+  clear(){
+    this.res = 0;
+  }
+  getResult(){
+    return this.res;
+  }
+  calculate(str){
+    let newstr = str.split(" ").join("");
+    str = newstr;
+    for(let i = 0;i<str.length;i++){
+      if(str[i]==='/' && str[i+1]==='0'){
+        throw(Error());
+      }
+    }
+    
+    this.res = eval(str);
+    return this.res;
+  }
+}
 module.exports = Calculator;

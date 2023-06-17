@@ -8,5 +8,14 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
-}
+    const date1 = new Date().getSeconds();
+    let sum = 0;
+    for(let i =1;i<=n;i++){
+       sum+=i;
+    }
+    console.log('Sum is ' + sum);
+    const date2 = new Date().getSeconds();
+    let timetaken = date2 - date1;
+    console.log(timetaken);
+   }
+   calculateTime(1000000);
